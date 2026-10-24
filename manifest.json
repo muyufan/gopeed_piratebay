@@ -1,0 +1,52 @@
+{
+  "name": "magnet-resolver",
+  "author": "mudengke",
+  "title": "Magnet Link Resolver",
+  "description": "Turn a page that contains magnet links into a BitTorrent task. Ported from play.py: reads the first magnet in a list item or on the page, understands JSON APIs and info hashes, and uses The Pirate Bay's apibay API for search pages.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/muyufan/gopeed_piratebay",
+  "repository": {
+    "url": "https://github.com/muyufan/gopeed_piratebay"
+  },
+  "scripts": [
+    {
+      "event": "onResolve",
+      "match": {
+        "urls": [
+          "*://*/*"
+        ]
+      },
+      "entry": "index.js"
+    }
+  ],
+  "settings": [
+    {
+      "name": "sites",
+      "title": "Sites to inspect",
+      "description": "Comma- or newline-separated domains. Only pages on these hosts are parsed; everything else is left to Gopeed. Use * to inspect every site (slower, and every new task will fetch its page once more).",
+      "type": "string",
+      "value": "thepiratebay.org, apibay.org, 1337x.to, 1337x.st, x1337x.ws, 1377x.to, torrentgalaxy.to, tgx.rs, nyaa.si, sukebei.nyaa.si, btdig.com, bt4g.org, bt4gprx.com, btsow.com, limetorrents.lol, limetorrents.info, rutracker.org, eztv.re, eztvx.to, magnetdl.com, torlock.com, bitsearch.to, solidtorrents.to, torrentfunk.com, zooqle.com, glodls.to, ext.to, yts.mx, rarbg.to, therarbg.com, libgen.is, libgen.rs, libgen.st, annas-archive.org, fitgirl-repacks.site, dodi-repacks.site"
+    },
+    {
+      "name": "userAgent",
+      "title": "User-Agent",
+      "description": "User-Agent header used when fetching a page or the apibay API.",
+      "type": "string",
+      "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+    },
+    {
+      "name": "cookie",
+      "title": "Cookie",
+      "description": "Optional Cookie header for sites that require a session. Copy it from your browser's developer tools.",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "timeout",
+      "title": "Request timeout (seconds)",
+      "description": "How long to wait for a page or API response.",
+      "type": "number",
+      "value": "25"
+    }
+  ]
+}
